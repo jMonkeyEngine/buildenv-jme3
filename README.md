@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/jMonkeyEngine/buildenv-jme3/workflows/Build%20Environments/badge.svg)](https://github.com/jMonkeyEngine/buildenv-jme3/actions)
+
 # Build environments for jMonkeyEngine3
 
 The master branch is automatically built and deployed to https://hub.docker.com/u/jmonkeyengine

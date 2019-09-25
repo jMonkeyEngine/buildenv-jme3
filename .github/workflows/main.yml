@@ -7,7 +7,7 @@
 #   DOCKER_REGISTRY_USER="jmonkeydeploy"
 #   DOCKER_REGISTRY_KEY="...."
 ####################################
-name: BuildEnvs for jMonkeyEngine
+name: Build Environments
 on:
   push:
 jobs:
