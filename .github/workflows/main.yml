@@ -10,6 +10,9 @@
 name: Build Environments
 on:
   push:
+  schedule:
+  - cron: 0 0 1 * *
+  
 jobs:
 
   BaseImg:
