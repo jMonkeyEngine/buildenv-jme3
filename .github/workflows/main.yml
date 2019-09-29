@@ -12,7 +12,7 @@ on:
   push:
   schedule:
   - cron: 0 0 1 * *
-  
+
 jobs:
 
   BaseImg:
@@ -61,3 +61,18 @@ jobs:
         run: |  
           bash ./make.sh build "buildenv-jme3" "android" "${{ secrets.DOCKER_NAMESPACE }}"
           if [ "$GITHUB_REF" = "refs/heads/master" ]; then bash ./make.sh deploy "buildenv-jme3" "android" ${{ secrets.DOCKER_NAMESPACE }} ${{ secrets.DOCKER_REGISTRY_USER }} ${{ secrets.DOCKER_REGISTRY_KEY }} ${{ secrets.DOCKER_REGISTRY }}; fi
+
+  HugoEnv:
+      needs: [BaseImg]
+      name: Build and Deploy hugo env
+      runs-on: ubuntu-18.04    
+
+      steps:    
+        - name: Clone the repo
+          uses: actions/checkout@v1     
+          with:
+            fetch-depth: 1
+        - name: hugo
+          run: |  
+            bash ./make.sh build "buildenv-jme3" "hugo" "${{ secrets.DOCKER_NAMESPACE }}"
+            if [ "$GITHUB_REF" = "refs/heads/master" ]; then bash ./make.sh deploy "buildenv-jme3" "hugo" ${{ secrets.DOCKER_NAMESPACE }} ${{ secrets.DOCKER_REGISTRY_USER }} ${{ secrets.DOCKER_REGISTRY_KEY }} ${{ secrets.DOCKER_REGISTRY }}; fi
