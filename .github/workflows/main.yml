@@ -14,7 +14,6 @@ on:
   - cron: 0 0 1 * *
 
 jobs:
-
   BaseImg:
     name: Build and Deploy base image
     runs-on: ubuntu-18.04     
