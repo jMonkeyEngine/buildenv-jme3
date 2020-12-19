@@ -28,7 +28,7 @@ RUN yes | sdkmanager \
   'build-tools;26.0.3' \
   'build-tools;27.0.3' \
   'build-tools;28.0.3' \
-  'build-tools;29.0.2' 'cmake;3.6.4111459' 'lldb;3.1'
+  'build-tools;29.0.2' 'cmake;3.6.4111459'
 
 RUN yes | sdkmanager ndk-bundle 
 
