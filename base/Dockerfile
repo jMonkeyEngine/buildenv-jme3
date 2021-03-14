@@ -13,6 +13,7 @@ RUN apt-get install -y                                 \
         unzip                                          \
         maven                                          \
         build-essential                                \
+        file                                           \
 && apt-get clean
 
 
