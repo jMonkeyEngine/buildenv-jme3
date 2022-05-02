@@ -26,6 +26,6 @@ RUN if [ "`sha256sum /tmp/gradle.zip | cut -d' ' -f1`" != "${GRADLE_SHA256HASH}"
     fi && \
     mkdir -p /tmp/gradle && \
     unzip -q -d /tmp/gradle /tmp/gradle.zip &&\
-    cp -Rf /tmp/gradle/gradle-*/* / &&\
+    cp -Rf /tmp/gradle/gradle-*/* /usr/ &&\
     rm -Rf /tmp/gradle && rm -f /tmp/gradle.zip && \
     echo "Installed gradle `gradle -v`"
