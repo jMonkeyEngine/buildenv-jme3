@@ -1,6 +1,7 @@
 ARG NAMESPACE=""
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update&&apt-get upgrade -y &&apt-get clean
 
@@ -30,3 +31,8 @@ ENV MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
 ENV INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
 
 RUN brew install hugo        
+
+RUN apt-get install -y \
+nodejs \
+npm \
+&& apt-get clean 
