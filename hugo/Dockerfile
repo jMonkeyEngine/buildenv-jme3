@@ -3,15 +3,22 @@ FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update&&apt-get upgrade -y &&apt-get clean
+RUN apt-get update&&apt-get upgrade -y 
 
 RUN apt-get install -y \
 build-essential     \
 curl \
 sudo \
 git \
-locales \
+locales 
+
+RUN apt-get install -y \
+nodejs \
+npm \
 && apt-get clean 
+
+RUN npm install less -g
+
 
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 && useradd -m -s /bin/bash linuxbrew \
@@ -21,7 +28,6 @@ USER linuxbrew
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-USER root
 
 ENV HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 ENV HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
@@ -30,9 +36,5 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 ENV MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
 ENV INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
 
-RUN brew install hugo        
+RUN brew install hugo
 
-RUN apt-get install -y \
-nodejs \
-npm \
-&& apt-get clean 
