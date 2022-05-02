@@ -5,7 +5,7 @@
 #   DOCKER_REGISTRY=""
 #   DOCKER_NAMESPACE="jmonkeyengine"
 #   DOCKER_REGISTRY_USER="jmonkeydeploy"
-#   DOCKER_REGISTRY_KEY="...."
+#   DOCKER_REGISTRY_KEY="...." 
 ####################################
 name: Build Environments
 on:
