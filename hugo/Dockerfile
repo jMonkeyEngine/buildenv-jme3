@@ -21,7 +21,7 @@ RUN npm install less -g
 
 
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
-&& groupadd -g 1000 && useradd -m -u 1000 -g 1000 -s /bin/bash linuxbrew \
+&& groupadd -g 1000 linuxbrew&& useradd -m -u 1000 -g 1000 -s /bin/bash linuxbrew \
 && echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL'  >> /etc/sudoers
 
 USER linuxbrew
